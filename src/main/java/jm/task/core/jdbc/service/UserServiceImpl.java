@@ -15,37 +15,33 @@ public class UserServiceImpl implements UserService {
 
     public void createUsersTable() {
 
-        udji.createUsersTable();
+        userHiber.createUsersTable();
     }
 
     public void dropUsersTable() {
 
-        udji.dropUsersTable();
+        userHiber.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
 
-        udji.saveUser(name, lastName, age);
+        userHiber.saveUser(name, lastName, age);
         System.out.println("User с именем – " + name + " добавлен в базу данных");
     }
 
     public void removeUserById(long id) {
 
-        udji.removeUserById(id);
+        userHiber.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
         List<User> list = new ArrayList<>();
-        try {
-            list = udji.getAllUsers();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        list = userHiber.getAllUsers();
         return list;
     }
 
     public void cleanUsersTable() {
 
-        udji.cleanUsersTable();
+        userHiber.cleanUsersTable();
     }
 }
